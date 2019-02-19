@@ -1,0 +1,52 @@
+class Mobile() :
+    def __init__(self,brand,callfunction,messagefunction,takephoto):
+        self.brand = brand
+        self.callfunction = callfunction
+        self.messagefunction = messagefunction
+        self.takephoto = takephoto
+        self.phonebook = ["05355010450","05346584099"]
+    def calling(self):
+        if self.callfunction == 'available':
+            a = input('Please input the phone number for calling: ')
+            print(a,'Ringing...')
+        else:
+            print("Your mobile phone hasn't calling function  ")
+    def sendmessage(self):
+        if self.messagefunction == 'available' :
+            a = input('Please input the phone number for calling message: ')
+            b = input('Please enter the message:')
+            print('Sending this message to',a,':',b)
+            print('Sent.')
+    def newperson(self):
+        a = str(input("Please enter the new person's number to phonebook: "))
+        print(a)
+        if a in self.phonebook:
+            print('This number already exists')
+        else:
+            self.phonebook.append(a)
+            print('New person added.')
+    def removeperson(self):
+        a = str(input("Please enter the number for removing: "))
+
+        if a in self.phonebook:
+            self.phonebook.remove(a)
+            print("Number has removed.")
+        else:
+            print('This number already not exists')
+    def updatephonebook(self,old,new):
+        for i in self.phonebook :
+            if old == i :
+                self.phonebook.remove(i)
+                self.phonebook.append(new)
+                print('Person updated.')
+            else:
+                pass
+
+
+## If your mobile phone has any function please write 'available' in the down
+person = Mobile('Apple','available','available','available')
+person.calling()
+person.sendmessage()
+person.newperson()
+person.removeperson()
+person.updatephonebook('05355010450','05542294567')
