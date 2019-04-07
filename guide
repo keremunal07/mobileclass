@@ -1,0 +1,60 @@
+class Gui:
+    def __init__(self,name_surname,number,email):
+        self.name_surname=name_surname;
+        self.number=number;
+        self.email=email;
+    def Add_new_people(self):
+        x = open("examp.txt","a")
+        x.write("Person ------")
+        x.write(self.name_surname)
+        x.write(",")
+        x.write(self.number)
+        x.write(",")
+        x.write(self.email)
+        x.write("------")
+        x.write("\n")
+        x.close()
+    def Find_phonenumber(self,name):
+        a = open("examp.txt","r")
+        x = a.readlines()
+        s=0;
+        for read in x:
+            s=s+1
+            if name in x[s]:
+                print(x[s])
+                break
+    def Update_phonenumber(self,name,nn):
+        a= open("examp.txt","r")
+        x= a.readlines()
+        s=0
+        for read in x:
+            s=s+1
+            if name in x[s]:
+                x[s] = [name,nn,self.email]
+                break
+    def view_allguide(self):
+        a = open("examp.txt","r")
+        print(a.read())
+person2 = Gui("person2","5253554","person2@windowslive.com")
+person3 = Gui("person3","5652345","person3@hotmail.com")
+kerem= Gui("Kerem Ünal","5542294567","unilis07@hotmail.com")
+person1 = Gui("person1","54543534","person1@gmail.com")
+
+person3.Add_new_people()
+kerem.Add_new_people()
+person1.Add_new_people()
+person2.Add_new_people()
+
+person1.Find_phonenumber("person1")
+person2.Find_phonenumber("person2")
+person3.Find_phonenumber("person3")
+kerem.Find_phonenumber("Kerem Ünal")
+print("-------")
+kerem.view_allguide()
+
+
+print("-------")
+kerem.Find_phonenumber("Kerem Ünal")
+
+
+
